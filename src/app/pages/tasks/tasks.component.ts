@@ -38,7 +38,6 @@ export class TasksComponent implements OnInit {
   }
 
   delete(index: number): void {
-    console.log(index)
     this.taskList.splice(index, 1);
   }
 

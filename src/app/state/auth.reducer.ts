@@ -19,7 +19,6 @@ export const userReducer = createReducer(
     on(loginSuccess, (state, props) => {
         
         const {credentials} = props;
-        console.log(credentials)
         return {
             ...state, user: credentials,
         }

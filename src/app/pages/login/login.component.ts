@@ -40,7 +40,6 @@ export class LoginComponent implements OnInit {
         this.userForm.get('username')!.value === 'test01' &&
         this.userForm.get('password')!.value === 'test01'
       ) {
-        console.log(this.userForm.value)
         this.store.dispatch(loginSuccess({credentials: this.userForm.value}))
         this.router.navigate(['/tareas']);
       } else {
