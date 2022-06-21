@@ -1,0 +1,6 @@
+<nav>
+    <p>
+        Usuario: {{(user$ | async)?.username || 'prueba01'}}
+    </p>
+    <button (click)="loggout()" mat-raised-button color="warn">Salir</button>
+</nav>

@@ -1,0 +1,21 @@
+<div class="login">
+    <form  [formGroup]="userForm" class="login__form">
+        <div class="login__form--left">
+            <mat-form-field appearance="standard">
+            <mat-label>Usuario</mat-label>
+            <input type="text" matInput formControlName="username" 
+                    placeholder="Ejem. test@tataconsultancy.com">
+            </mat-form-field>
+    
+            <mat-form-field appearance="standard">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput formControlName="password" 
+                    placeholder="*********">
+            </mat-form-field>
+        </div>
+        <div class="login__form--right">
+            <button *ngIf="!loading" [disabled]="userForm.invalid" (click)="login()" mat-raised-button color="primary">Ingresar</button>
+            <div *ngIf="loading" class="loader"><div></div><div></div><div></div></div>
+        </div>
+    </form>
+</div>

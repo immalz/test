@@ -1,0 +1,36 @@
+<div class="tasks">
+    <div class="tasks__navbar">
+        <app-header></app-header>
+    </div>
+    <div class="tasks__content">
+        <h1>LISTADO DE TAREAS</h1>
+
+        <div class="input_task">
+            <mat-form-field appearance="standard">
+                <mat-label>Tarea</mat-label>
+                <input type="text" [(ngModel)]="descriptionTask" matInput placeholder="tarea 1">
+              </mat-form-field>
+            <button mat-raised-button color="primary" (click)="addTask()">Agregar</button>
+        </div>
+        <div class="task_list">
+            <ng-container *ngIf="taskList.length >= 1 else empty">
+                <div class="task" *ngFor="let task of taskList; let i = index;">
+                    <mat-checkbox color="primary"  [(ngModel)]="task.checked">
+                        {{task.description | truncate: [30]}}
+                    </mat-checkbox>
+                    <button (click)="delete(i)" [disabled]="task.checked" color="warn" mat-icon-button>
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </ng-container>
+            <ng-template #empty>
+                <span><strong>*</strong> La lista esta vacia, agrega uno!</span>
+            </ng-template>
+            
+            
+        </div>
+    </div>
+    <div class="tasks__footer">
+        <app-footer></app-footer>
+    </div>
+</div>
